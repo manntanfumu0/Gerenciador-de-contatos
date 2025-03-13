@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanaque X - Contatos</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Almanaque X - Início</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Almanaque <span class="x">X</span> - Lista de Contatos</h1>
-        <div class="form-container">
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="Nome" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="tel" id="phone" placeholder="Telefone" required>
-                <button type="submit">Cadastrar</button>
-            </form>
+        <h1>Bem-vindo a Agenda de Contatos</h1>
+        <div class="button-container">
+            <button id="register-button" class="animated-button">Cadastrar Novo Contato</button>
+            <button id="view-contacts-button" class="animated-button">Ver Contatos Cadastrados</button>
         </div>
-        <ul id="contact-list"></ul>
-        <button id="view-all-button">Ver Todos os Contatos</button>
     </div>
-    <script src="Script.js"></script>
+
+    <script>
+        document.getElementById('register-button').addEventListener('click', function() {
+            window.location.href = 'cadastro.html';
+        });
+
+        document.getElementById('view-contacts-button').addEventListener('click', function() {
+            window.location.href = 'contatos.html';
+        });
+    </script>
+
+    <footer class="footer">
+        <p>Produced by Almanaque</p>
+        <img src="images/logoalmanaque.png" alt="Almanaque X" class="footer-logo">
+        
+    </footer>
+
 </body>
 </html>
