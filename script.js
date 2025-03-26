@@ -8,59 +8,56 @@ function saveContacts(contacts) {
 
 // Função para carregar os contatos do localStorage
 function loadContacts() {
-    return JSON.parse(localStorage.getItem('contacts')) || [];
+    fetch('http://localhost:3000/contacts')
+        .then(response => response.json())
+        .then(contacts => renderContactList(contacts))
+        .catch(error => console.error('Erro:', error));
 }
+
 
 // Função para adicionar um novo contato
 function addContact(event) {
-    event.preventDefault(); // Evitar o envio do formulário
+    event.preventDefault();
 
-    // Obtendo os dados do formulário
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
 
-    if (name && email && phone) {
-        // Criando o item de contato
-        const newContact = { name, email, phone };
-
-        // Carregando os contatos atuais do localStorage
-        const contacts = loadContacts();
-
-        // Adicionando o novo contato à lista
-        contacts.push(newContact);
-
-        // Salvando a lista de contatos atualizada
-        saveContacts(contacts);
-
-        // Atualizando a lista de contatos na interface
-        renderContactList(contacts);
-
-        // Limpando os campos do formulário
+    fetch('http://localhost:3000/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone })
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        loadContacts();
         contactForm.reset();
-    } else {
-        alert('Por favor, preencha todos os campos!');
-    }
+    })
+    .catch(error => console.error('Erro:', error));
 }
+
 
 // Função para remover um contato
-function removeContact(event) {
-    // Obtendo o nome do contato a partir do botão clicado
-    const li = event.target.closest('li');
-    const name = li.querySelector('span').textContent.split('\n')[0]; // Pegando o nome
+// Função para remover um contato
+/*function removeContact(event) {
+    const id = event.target.dataset.id;
 
-    // Carregar os contatos do localStorage
-    const contacts = loadContacts();
+    fetch(`http://localhost:3000/delete/${id}`, {
+        method: 'DELETE'
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data);
+        // Remover o contato da lista na interface antes de recarregar
+        const li = event.target.closest('li');
+        li.remove();  // Remove o item da lista
+        loadContacts(); // Recarrega os contatos após remoção
+    })
+    .catch(error => console.error('Erro:', error));
+}*/
 
-    // Filtrar os contatos removendo o contato com o nome correspondente
-    const updatedContacts = contacts.filter(contact => contact.name !== name);
 
-    // Atualizando o localStorage com a lista de contatos sem o removido
-    saveContacts(updatedContacts);
-
-    // Atualizando a lista de contatos na interface
-    renderContactList(updatedContacts);
-}
 
 // Função para renderizar a lista de contatos
 function renderContactList(contacts) {
