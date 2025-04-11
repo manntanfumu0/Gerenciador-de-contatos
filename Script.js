@@ -49,11 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Renderiza lista de contatos
     function renderContacts(contacts) {
         contactsList.innerHTML = '';
-        if (contacts.length === 0) {
+    
+        if (!contacts || contacts.length === 0) {
             contactsList.innerHTML = '<li>Nenhum contato encontrado.</li>';
             return;
         }
-
+    
+        // Ordena os contatos por nome, ignorando maiúsculas e acentos
+        contacts.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }));
+    
         contacts.forEach(contact => {
             const li = document.createElement('li');
             li.innerHTML = `
@@ -66,9 +70,8 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             contactsList.appendChild(li);
         });
-        
     }
-
+    
     // Remove contato
     window.deleteContact = function(id) {
         fetch(`http://localhost:3000/delete/${id}`, { method: 'DELETE' })

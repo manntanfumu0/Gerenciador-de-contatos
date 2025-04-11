@@ -176,3 +176,12 @@ li button:hover {
     height: auto;
     border-radius: 50%;
 }
+
+.contact-list-wrapper {
+    max-height: 300px; /* altura máxima visível */
+    overflow-y: auto;  /* rolagem vertical */
+    margin-top: 20px;
+    border-radius: 10px;
+    padding-right: 5px;
+    
+}
