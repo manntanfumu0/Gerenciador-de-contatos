@@ -4,18 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatos - Almanaque X</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
+        
         <h1>Todos os Contatos</h1><br><br>
 
-        <ul id="contact-list">
-        </ul><br>
+        <!-- Campo de busca com mesmo estilo do input de nome -->
+        <input type="text" id="search-input" class="styled-input" placeholder="Buscar por nome ou email">
+        <button id="search-button" class="animated-button">Buscar</button>
+
+        <ul id="contact-list"></ul><br>
 
         <button onclick="window.location.href='index.html'" class="animated-button">Voltar para o Cadastro</button>
     </div>
 
-    <script src="script.js"></script>
+    <footer class="footer">
+        <p>Produced by Almanaque</p>
+        <img src="images/logoalmanaque.png" alt="Almanaque X" class="footer-logo"/>
+    </footer>
+
+    <script src="Script.js"></script>
 </body>
 </html>

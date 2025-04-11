@@ -1,0 +1,178 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Fundo com imagem e gradiente */
+body {
+    background-image: url('images/fundogradient.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.1); /* leve escurecimento */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    color: #333;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Imagem de fundo X sobreposta */
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/x-pattern.png');
+    background-repeat: repeat;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Container com efeito vidro */
+.container {
+    background: linear-gradient(135deg, rgba(4, 57, 113, 0.8), rgba(77, 136, 161, 0.6));
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(10px);
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h1 .x {
+    color: #f3e521;
+}
+
+form input,
+.styled-input {
+    width: 100%;
+    padding: 14px 16px;
+    margin: 12px 0;
+    border: 1px solid #ccd6dd;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f9fbfd;
+    transition: all 0.3s ease-in-out;
+}
+
+form input:focus,
+.styled-input:focus {
+    border-color: #1976d2;
+    box-shadow: 0 0 10px rgba(25, 118, 210, 0.25);
+    background-color: #ffffff;
+    outline: none;
+}
+
+/* Botões padrão */
+button, .animated-button {
+    width: 100%;
+    padding: 14px;
+    background: #11467a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+button:hover, .animated-button:hover {
+    background: #1565c0;
+    transform: scale(1.02);
+}
+
+/* Lista */
+ul {
+    list-style: none;
+    margin-top: 25px;
+    padding-left: 0;
+    width: 100%; /* garante que a lista ocupe toda a largura */
+}
+
+li {
+    width: 100%; /* ocupa toda a largura da UL/container */
+    background: #e3f2fd;
+    padding: 14px 18px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+li span {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+
+li button {
+    background: #e53935;
+    color: white;
+    padding: 4px 10px;
+    font-size: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    height: 26px;
+    width: 90px;
+    min-width: 60px;
+}
+
+li button:hover {
+    background: #c62828;
+}
+
+/* Rodapé */
+.footer {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    z-index: 2;
+}
+
+.footer-logo {
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
+}
