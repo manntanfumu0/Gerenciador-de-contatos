@@ -1,38 +1,46 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br"> 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanaque X - Cadastro de Contatos</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a responsividade da página em dispositivos móveis -->
+    <title>Almanaque X - Contatos</title> <!-- Título da página exibido na aba do navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS que contém os estilos da página -->
 </head>
-<body>
-    <div class="container">
-        <h1>Cadastrar novo contato</h1><br><br>
 
+<body>
+    <!-- Container principal onde o conteúdo é exibido -->
+    <div class="container">
+        <!-- Título da página com logotipo ao lado -->
+        <h1> 
+            <span class="x">Cruzeiro Tech</span>
+            <img src="images/images.png" alt="Almanaque X" class="footer-logo"/><br><br> <!-- Logotipo da Almanaque X -->
+            Cadastrar Novo Contato
+        </h1>
+
+        <!-- Container para o formulário de cadastro de contatos -->
         <div class="form-container">
-            
+            <!-- Formulário de cadastro -->
             <form id="contact-form">
-                <input type="text" id="name" placeholder="Nome" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="tel" id="phone" placeholder="Telefone" required>
-                <button type="submit" class="animated-button">Cadastrar</button>
+                <!-- Campos para inserir nome, email e telefone -->
+                <input type="text" id="name" placeholder="Nome" required> <!-- Campo para nome -->
+                <input type="email" id="email" placeholder="Email" required> <!-- Campo para email -->
+                <input type="tel" id="phone" placeholder="Telefone" required> <!-- Campo para telefone -->
+                <button type="submit">Cadastrar</button> <!-- Botão de envio do formulário -->
             </form>
         </div><br>
 
-        <h2>Contatos Cadastrados</h2>
-        <ul id="contact-list"></ul>
-
-        <div class="navigation">
-            <button id="view-all-button" class="animated-button">Ver Todos os Contatos</button>
-        </div>
+        <!-- Botão para visualizar todos os contatos -->
+        <button id="view-all-button">Ver Todos os Contatos</button>
+        <button onclick="window.location.href='index.html'" class="animated-button">Voltar para Página Inicial</button>
     </div>
 
+    <!-- Rodapé da página -->
     <footer class="footer">
-        <p>Produced by Almanaque</p>
-        <img src="images/logoalmanaque.png" alt="Almanaque X" class="footer-logo"/>
+        <p>Produced by Almanaque</p> <!-- Texto de créditos -->
+        <img src="images/logoalmanaque.png" alt="Almanaque X" class="footer-logo"/> <!-- Logotipo da Almanaque X no rodapé -->
     </footer>
 
-    <script src="Script.js"></script>
+    <!-- Inclusão do script JavaScript -->
+    <script src="Script.js"></script> <!-- Aqui deve estar o código JavaScript para manipular o comportamento da página -->
 </body>
 </html>
