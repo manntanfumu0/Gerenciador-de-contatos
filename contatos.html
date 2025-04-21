@@ -1,32 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contatos - Almanaque X</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a responsividade para dispositivos móveis -->
+    <title>Contatos - Almanaque X</title> <!-- Título da página exibido na aba do navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Importa o arquivo de estilo (CSS) para a página -->
 </head>
 <body>
+    <!-- Container principal onde o conteúdo será exibido -->
     <div class="container">
         
-        <h1>Todos os Contatos</h1><br><br>
+        
+        <h1> 
+            <span class="x">Cruzeiro Tech</span>
+            <img src="images/images.png" alt="Almanaque X" class="footer-logo"/>
+            <br>
+            Seus Contatos
+        </h1><br>
 
-        <!-- Campo de busca com mesmo estilo do input de nome -->
-        <input type="text" id="search-input" class="styled-input" placeholder="Buscar por nome ou email">
-        <button id="search-button" class="animated-button">Buscar</button>
+        <!-- Campo de busca com input e botão -->
+        <div class="search-bar">
+            <!-- Campo de entrada de texto para buscar contatos (nome ou email) -->
+            <input type="text" id="search-input" class="styled-input" placeholder="Buscar por nome ou email">
+            <!-- Botão de busca com ícone de lupa -->
+            <button id="search-button" class="animated-button">🔍</button>
+        </div>
 
+        <!-- Lista de contatos que será preenchida dinamicamente -->
         <div class="contact-list-wrapper">
+            <!-- Aqui serão listados os contatos -->
             <ul id="contact-list"></ul>
         </div><br>
 
-        <button onclick="window.location.href='index.html'" class="animated-button">Voltar para o Cadastro</button>
+        <!-- Botão para cadastrar um novo contato -->
+        <button onclick="window.location.href='cadastro.html'" class="animated-button">Cadastrar Novo Contatos</button>
+        
+        <!-- Botão para voltar à página inicial -->
+        <button onclick="window.location.href='index.html'" class="animated-button">Voltar para Página Inicial</button>
     </div>
 
+    <!-- Modal de edição de contato -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Editar Contato</h2>
+                <button class="close-button" onclick="closeEditModal()">&times;</button>
+            </div>
+            <form id="edit-form">
+                <input type="text" id="edit-name" placeholder="Nome" required>
+                <input type="email" id="edit-email" placeholder="Email" required>
+                <input type="tel" id="edit-phone" placeholder="Telefone" required>
+                <div class="modal-footer">
+                    <button type="button" class="cancel-button" onclick="closeEditModal()">Cancelar</button>
+                    <button type="submit" class="save-button">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rodapé da página com a marca Almanaque X -->
     <footer class="footer">
-        <p>Produced by Almanaque</p>
-        <img src="images/logoalmanaque.png" alt="Almanaque X" class="footer-logo"/>
+        <p>Produced by Almanaque</p> <!-- Texto de créditos -->
+        <img src="images/logoalmanaque.png" alt="Almanaque X" class="footer-logo"/> <!-- Logotipo da Almanaque X -->
     </footer>
 
+    <!-- Inclusão do arquivo JavaScript que contém a lógica da página -->
     <script src="Script.js"></script>
 </body>
 </html>

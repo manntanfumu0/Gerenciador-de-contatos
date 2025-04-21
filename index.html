@@ -2,29 +2,37 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Almanaque X - Contatos</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade para dispositivos móveis -->
+    <title>Almanaque X - Contatos</title> <!-- Título da aba do navegador -->
+    <link rel="stylesheet" href="styles.css"> <!-- Importa o arquivo CSS externo -->
 </head>
-<body>
-    <div class="container">
-        <h1> <span class="x">Cruzeiro Tech   </span><img src="images/images.png" alt="Almanaque X" class="footer-logo"/><br><br>Lista de Contatos</h1>
-        <div class="form-container">
-            <form id="contact-form">
-                <input type="text" id="name" placeholder="Nome" required>
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="tel" id="phone" placeholder="Telefone" required>
-                <button type="submit">Cadastrar</button>
-            </form>
-        </div><br>
+
+
+<body class="body-index"> 
+    <!-- Container principal com conteúdo centralizado -->
+    <div class="container-index">
+        <!-- Título com imagem ao lado (logotipo da empresa) -->
+        <h1> 
+            <span class="x">Cruzeiro Tech</span>
+            <img src="images/images.png" alt="Almanaque X" class="footer-logo"/>
+            <br><br>
+            Agenda de Contatos
+        </h1>
         
-        <button id="view-all-button">Ver Todos os Contatos</button>
+        <!-- Botão que leva para a visualização dos contatos -->
+        <button id="view-all-button">Seus Contatos</button>
     </div>
 
-     <footer class="footer">
+    <!-- Rodapé com créditos e logotipo -->
+    <footer class="footer">
+        
+
+
         <p>Produced by Almanaque</p>
         <img src="images/logoalmanaque.png" alt="Almanaque X" class="footer-logo"/>
     </footer>
+
+    <!-- Importa o script JavaScript externo -->
     <script src="Script.js"></script>
 </body>
 </html>
