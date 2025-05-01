@@ -2,45 +2,101 @@
 <html lang="pt-br"> 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura a responsividade da página em dispositivos móveis -->
-    <title>Almanaque X - Contatos</title> <!-- Título da página exibido na aba do navegador -->
-    <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS que contém os estilos da página -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Contato - Cruzeiro Tech</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <!-- Container principal onde o conteúdo é exibido -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
     <div class="container">
-        <!-- Título da página com logotipo ao lado -->
-        <h1> 
-            <span class="x">Cruzeiro Tech</span>
-            <img src="images/images.png" alt="Almanaque X" class="footer-logo"/><br><br> <!-- Logotipo da Almanaque X -->
-            Cadastrar Novo Contato
-        </h1>
+        <div class="logo-container">
+            <span class="logo-text">Cruzeiro Tech</span>
+            <img src="images/images.png" alt="Cruzeiro Tech" class="logo-image"/>
+        </div>
+        
+        <h1 class="main-title">Cadastrar Novo Contato</h1>
 
-        <!-- Container para o formulário de cadastro de contatos -->
         <div class="form-container">
-            <!-- Formulário de cadastro -->
             <form id="contact-form">
-                <!-- Campos para inserir nome, email e telefone -->
-                <input type="text" id="name" placeholder="Nome" required> <!-- Campo para nome -->
-                <input type="email" id="email" placeholder="Email" required> <!-- Campo para email -->
-                <input type="tel" id="phone" placeholder="Telefone" required> <!-- Campo para telefone -->
-                <button type="submit">Cadastrar</button> <!-- Botão de envio do formulário -->
+                <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name" placeholder="Digite o nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Digite o email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" pattern="\d{11}" maxlength="11" placeholder="Digite o telefone (somente números)" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Categoria</label>
+                    <select id="category" required>
+                        <option value="work">Trabalho</option>
+                        <option value="family">Família</option>
+                        <option value="friends">Amigos</option>
+                        <option value="other">Outros</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="favorite">Marcar como favorito</label>
+                    <input type="checkbox" id="favorite">
+                </div>
+                <button type="submit" class="primary-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                        <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                        <polyline points="7 3 7 8 15 8"></polyline>
+                    </svg>
+                    Cadastrar
+                </button>
             </form>
-        </div><br>
+        </div>
 
-        <!-- Botão para visualizar todos os contatos -->
-        <button id="view-all-button">Ver Todos os Contatos</button>
-        <button onclick="window.location.href='index.html'" class="animated-button">Voltar para Página Inicial</button>
+        <div class="button-group">
+            <button onclick="window.location.href='contatos.html'" class="secondary-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                    <path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path>
+                    <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                    <circle cx="12" cy="10" r="2"></circle>
+                    <line x1="8" x2="16" y1="2" y2="2"></line>
+                </svg>
+                Ver Todos os Contatos
+            </button>
+            
+            <button onclick="window.location.href='index.html'" class="secondary-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                    <path d="m12 19-7-7 7-7"></path>
+                    <path d="M19 12H5"></path>
+                </svg>
+                Voltar para Página Inicial
+            </button>
+        </div>
     </div>
 
-    <!-- Rodapé da página -->
     <footer class="footer">
-        <p>Produced by Almanaque</p> <!-- Texto de créditos -->
-        <img src="images/logoalmanaque.png" alt="Almanaque X" class="footer-logo"/> <!-- Logotipo da Almanaque X no rodapé -->
+        <p>Produced by Almanaque</p>
+        <img src="images/logoalmanaque.png" alt="Almanaque" class="footer-logo"/>
     </footer>
 
-    <!-- Inclusão do script JavaScript -->
-    <script src="Script.js"></script> <!-- Aqui deve estar o código JavaScript para manipular o comportamento da página -->
+    <script src="script.js"></script>
 </body>
 </html>
