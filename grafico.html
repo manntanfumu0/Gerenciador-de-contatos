@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gráfico de Categorias - Cruzeiro Tech</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="body-index">
+  <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema"></button>
+
+  <div class="container">
+    <div class="logo-container">
+      <span class="logo-text">Cruzeiro Tech</span>
+      <img src="images/images.png" alt="Cruzeiro Tech" class="logo-image"/>
+    </div>
+
+    <h1 class="main-title">Contatos por Categoria</h1>
+
+    <canvas id="categoryChart" width="400" height="200"></canvas>
+
+    <div class="button-group">
+      <button onclick="window.location.href='index.html'" class="secondary-button">
+        Voltar para Página Inicial
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    fetch('http://localhost:3000/contacts')
+      .then(res => res.json())
+      .then(data => {
+        const counts = {
+          work: 0,
+          family: 0,
+          friends: 0,
+          other: 0
+        };
+
+        data.forEach(contact => {
+          const cat = contact.category || 'other';
+          counts[cat]++;
+        });
+
+        const ctx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Trabalho', 'Família', 'Amigos', 'Outros'],
+            datasets: [{
+              label: 'Número de Contatos',
+              data: [counts.work, counts.family, counts.friends, counts.other],
+              backgroundColor: ['#4caf50', '#2196f3', '#9c27b0', '#ff9800']
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                labels: {
+                  color: '#ffffff'
+                }
+              }
+            },
+            scales: {
+              x: {
+                ticks: {
+                  color: '#ffffff'
+                },
+                grid: {
+                  color: 'rgba(255,255,255,0.2)'
+                }
+              },
+              y: {
+                beginAtZero: true,
+                ticks: {
+                  color: '#ffffff',
+                  stepSize: 1
+                },
+                grid: {
+                  color: 'rgba(255,255,255,0.2)'
+                }
+              }
+            }
+          }
+        });
+      });
+  </script>
+</body>
+</html>
